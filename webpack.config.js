@@ -7,15 +7,36 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './dist/'),
-    filename: 'index_bundle.js',
+    filename: '[name].[hash].js',
     publicPath: ""
   },
   module: {
     rules: [
-      { test: /.js$/, use: "babel-loader" }
+      { test: /.js$/, use: "babel-loader" },
+      { test: /.jsx$/, use: "babel-loader" },
+      {
+        test: /.less$/, use: [
+          'style-loader', {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          }, 'less-loader'
+        ]
+      }
     ]
   },
+  devServer: {
+    historyApiFallback: true,
+    port: 9000,
+    open: false,
+    index: "index.html",
+  },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      title: "react20200303",
+      filename: "index.html",
+      template: path.join(__dirname, './src/index.html')
+    })
   ]
 }

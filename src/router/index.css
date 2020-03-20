@@ -1,0 +1,20 @@
+.blue {
+  color: #87c3f5;
+}
+.noline {
+  text-decoration: none;
+}
+.inline-block {
+  display: inline-block;
+}
+.link {
+  padding: 10px;
+  composes: blue noline inline-block;
+  composes: bg-blue from './test.less';
+}
+.link:hover {
+  color: red;
+}
+:global .box {
+  border: 1px solid red;
+}
