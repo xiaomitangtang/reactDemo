@@ -1,0 +1,16 @@
+.portal {
+  background-color: #eeeeee;
+  width: 200px;
+  height: 200px;
+}
+.mousebox {
+  width: 400px;
+  height: 400px;
+  background-color: pink;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+.catimg {
+  width: 30px;
+  height: 30px;
+}

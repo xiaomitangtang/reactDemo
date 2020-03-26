@@ -57,7 +57,7 @@ export default function* rootSaga() {
   ])
 }
 
-setInterval(() => {
+setTimeout(() => {
   axios.get('name').then(res => {
     console.log('name====>', res.data);
   })

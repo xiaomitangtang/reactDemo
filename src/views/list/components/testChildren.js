@@ -9,7 +9,7 @@ export default class TestChildren extends Component {
     this.state = { name: 1 }
   }
   componentDidMount() {
-    console.log('TestChildren==>', this.props);
+    console.log('TestChildren组建==>', this);
   }
   render() {
     return [

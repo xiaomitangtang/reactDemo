@@ -4,8 +4,7 @@ import { myReducer, myReducerCreator } from '../../test/useReducer.js'
 import TestChildren from './components/testChildren'
 
 
-
-export default () => {
+export default (props) => {
   let { name } = useContext(AppContext)
   let [count, setCounter] = useState(0)
   let handleClick = function () {
@@ -18,6 +17,7 @@ export default () => {
       setCounter(0)
     }, 1000)
   }, [count])
+  console.log('list组件==》', props);
   return <div>
     <div>list组件</div>
     {/* 全局共享属性 */}
