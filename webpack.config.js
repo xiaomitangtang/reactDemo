@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 console.log(' process.NODE_ENV', process.env.NODE_ENV)
 module.exports = {
@@ -27,8 +28,41 @@ module.exports = {
           path.resolve(__dirname, 'src')
         ]
       },
-      { test: /.js$/, use: 'babel-loader' },
-      { test: /.jsx$/, use: 'babel-loader' },
+      {
+        test: /.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      },
+      {
+        test: /.jsx$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      },
+      {
+        test: /.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          }
+        ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /.less$/,
+        use: [
+          // 'style-loader',
+          MiniCssExtractPlugin.loader, {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            }
+          }, 'less-loader'
+        ],
+        exclude: /node_modules/,
+      },
       {
         test: /.css$/,
         use: [
@@ -38,20 +72,38 @@ module.exports = {
               modules: false
             }
           }
-        ]
+        ],
+        exclude: /src/,
+        include: /node_modules/
       },
       {
         test: /.less$/,
         use: [
-
           // 'style-loader',
-          MiniCssExtractPlugin.loader, {
-            loader: 'css-loader',
+          MiniCssExtractPlugin.loader, 'css-loader', {
+            loader: 'less-loader',
             options: {
-              modules: true
+              javascriptEnabled: true
             }
-          }, 'less-loader'
-        ]
+          }
+        ],
+        exclude: /src/,
+        include: /node_modules/
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: '@svgr/webpack',
+            options: {
+              babel: false,
+              icon: true,
+            },
+          },
+        ],
       }
     ]
   },
@@ -62,6 +114,7 @@ module.exports = {
     index: 'index.html'
   },
   plugins: [
+    // new AntdDayjsWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: 'react20200303',
@@ -77,7 +130,8 @@ module.exports = {
     }),
     new CopyPlugin([{
       from: 'static', to: 'static'
-    }])
+    }]),
+
   ],
   optimization: {
     minimizer: [
