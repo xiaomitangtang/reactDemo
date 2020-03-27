@@ -16,6 +16,10 @@ const FragmentTest = lazy(() => import('./fragment'))
 const TestContext = lazy(() => import('./testContext'))
 const PortalDemo = lazy(() => import("./portal"))
 const WebCom = lazy(() => import("./WebCom"))
+const MemoryHelper = lazy(() => import('./memorizeHelper'))
+const Other = lazy(() => import('./Other'))
+const Hook = lazy(() => import('./hook'))
+
 import style from './index.less'
 // link
 //    to  可以是字符串  也可以是对象   pathname search hash state
@@ -44,6 +48,9 @@ export default class Routes extends React.Component {
           <Link to='/TestContext' className={style.link}>TestContext</Link>
           <Link to='/WebCom' className={style.link}>WebCom</Link>
           <Link to='/PortalDemo' className={style.link}>PortalDemo</Link>
+          <Link to='/MemoryHelper' className={style.link}>MemoryHelper</Link>
+          <Link to='/Other' className={style.link}>Other</Link>
+          <Link to='/Hook' className={style.link}>Hook</Link>
           <Link to='/ssssss654/5454' className={style.link}>没有设置的路由</Link>
           <p aria-required='xxx' > aria-ppp='xxx'</p>
         </div>
@@ -68,6 +75,9 @@ export default class Routes extends React.Component {
             <Route path='/PortalDemo' children={wrapBySuspen(PortalDemo)}></Route>
             <Route path='/TestContext' children={wrapBySuspen(TestContext)}></Route>
             <Route path='/WebCom' children={wrapBySuspen(WebCom)}></Route>
+            <Route path='/Hook' children={wrapBySuspen(Hook)}></Route>
+            <Route path='/MemoryHelper' children={wrapBySuspen(MemoryHelper)}></Route>
+            <Route path='/Other' children={wrapBySuspen(Other)}></Route>
             <Route path="*" >
               404
           </Route>

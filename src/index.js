@@ -60,7 +60,7 @@ class Wrapper extends React.Component {
     return <h1>有错误</h1>
   }
 }
-console.log('XXXXXX', XXXXXX)
+// console.log('XXXXXX', XXXXXX)
 let content = <Wrapper />
 ReacDom.render(content, document.getElementById('app'), () => {
   console.log('app,已经挂载')
