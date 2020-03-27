@@ -30,6 +30,17 @@ module.exports = {
       { test: /.js$/, use: 'babel-loader' },
       { test: /.jsx$/, use: 'babel-loader' },
       {
+        test: /.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, {
+            loader: 'css-loader',
+            options: {
+              modules: false
+            }
+          }
+        ]
+      },
+      {
         test: /.less$/,
         use: [
 

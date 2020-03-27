@@ -19,7 +19,7 @@ const WebCom = lazy(() => import("./WebCom"))
 const MemoryHelper = lazy(() => import('./memorizeHelper'))
 const Other = lazy(() => import('./Other'))
 const Hook = lazy(() => import('./hook'))
-
+const AntDemo = lazy(() => import('./antdTest'))
 import style from './index.less'
 // link
 //    to  可以是字符串  也可以是对象   pathname search hash state
@@ -51,6 +51,7 @@ export default class Routes extends React.Component {
           <Link to='/MemoryHelper' className={style.link}>MemoryHelper</Link>
           <Link to='/Other' className={style.link}>Other</Link>
           <Link to='/Hook' className={style.link}>Hook</Link>
+          <Link to='/AntDemo' className={style.link}>AntDemo</Link>
           <Link to='/ssssss654/5454' className={style.link}>没有设置的路由</Link>
           <p aria-required='xxx' > aria-ppp='xxx'</p>
         </div>
@@ -77,6 +78,7 @@ export default class Routes extends React.Component {
             <Route path='/WebCom' children={wrapBySuspen(WebCom)}></Route>
             <Route path='/Hook' children={wrapBySuspen(Hook)}></Route>
             <Route path='/MemoryHelper' children={wrapBySuspen(MemoryHelper)}></Route>
+            <Route path='/AntDemo' children={wrapBySuspen(AntDemo)}></Route>
             <Route path='/Other' children={wrapBySuspen(Other)}></Route>
             <Route path="*" >
               404
