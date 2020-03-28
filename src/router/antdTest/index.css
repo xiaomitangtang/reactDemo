@@ -1,0 +1,8 @@
+.layout-box {
+  width: 500px;
+  height: 500px;
+  background-color: pink;
+}
+.layout-box :global .ant-layout-sider-trigger {
+  position: relative;
+}

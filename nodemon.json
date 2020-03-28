@@ -1,7 +1,7 @@
 {
+  "restartable": "rs",
   "verbose": true,
-  "ignore": ["src"],
-  "watch": ["webpack.config.js", ".eslintrc.js", ".babelrc"],
+  "ignore": ["src", "node_modules/**/node_modules"],
   "exec": "npm start",
   "execMap": {
     "rb": "ruby",
