@@ -7,6 +7,10 @@ import App from './index.jsx'
 import { AppContext, AppContext2 } from './test/useContext.js'
 import './mock/index'
 import './styles'
+import * as rxjs from 'rxjs'
+import * as operatprs from 'rxjs/operators'
+window.rx = rxjs
+window.op = operatprs
 class Wrapper extends React.Component {
   constructor(props) {
     super(props)
