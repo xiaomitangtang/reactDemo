@@ -7,13 +7,15 @@ import {
   FileOutlined,
   TeamOutlined,
   UserOutlined,
-  DownOutlined
+  DownOutlined,
+  EllipsisOutlined
 } from '@ant-design/icons';
 const { Title, Paragraph, Text } = Typography;
 
 
 export default () => {
   return <>
+    <hr />
     <Buttons></Buttons>
     <Para></Para>
     <RC></RC>
@@ -22,7 +24,7 @@ export default () => {
     <Bread></Bread>
     <DropdownDemo></DropdownDemo>
     <Page></Page>
-    <PageHead></PageHead>
+
   </>
 }
 
@@ -198,22 +200,4 @@ const Page = () => {
   return <>
     <Pagination showSizeChanger defaultCurrent={1} showLessItems showTotal={showTotal} total={5000} showQuickJumper onChange={onChange} onShowSizeChange={onShowSizeChange} /></>
 }
-
-const PageHead = () => <>
-  <PageHeader
-    className="site-page-header"
-    onBack={() => null}
-    title="Title"
-    subTitle="This is a subtitle"
-  /></>
-
-
-
-
-
-
-
-
-
-
 
