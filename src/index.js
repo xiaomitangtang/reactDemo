@@ -11,6 +11,8 @@ import * as rxjs from 'rxjs'
 import * as operatprs from 'rxjs/operators'
 window.rx = rxjs
 window.op = operatprs
+window.clga = (...arg) => console.log(arg)
+window.clg = (...arg) => console.log(...arg)
 class Wrapper extends React.Component {
   constructor(props) {
     super(props)
