@@ -109,8 +109,8 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    port: 9000,
-    open: false,
+    port: 9001,
+    open: true,
     index: 'index.html'
   },
   plugins: [

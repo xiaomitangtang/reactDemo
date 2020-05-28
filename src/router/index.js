@@ -21,6 +21,10 @@ const Other = lazy(() => import('./Other'))
 const Hook = lazy(() => import('./hook'))
 const AntDemo = lazy(() => import('./antdTest'))
 const AntMotion = lazy(() => import('./motion'))
+const UmiHook = lazy(() => import('./umihook'))
+const EmojiDemo = lazy(() => import('./emoji'))
+const D528 = lazy(() => import('./test528'))
+
 import style from './index.less'
 // link
 //    to  可以是字符串  也可以是对象   pathname search hash state
@@ -55,7 +59,10 @@ export default class Routes extends React.Component {
           <Link to='/AntDemo' className={style.link}>AntDemo</Link>
           <Link to='/AntMotion' className={style.link}>AntMotion</Link>
           <Link to='/ssssss654/5454' className={style.link}>没有设置的路由</Link>
-          <p aria-required='xxx' > aria-ppp='xxx'</p>
+          <Link to='/UmiHook' className={style.link}>UmiHook</Link>
+          <Link to='/EmojiDemo' className={style.link}>EmojiDemo</Link>
+          <Link to='/D528' className={style.link}>D528</Link>
+          {/* <p aria-required='xxx' > aria-ppp='xxx'</p> */}
         </div>
         <div>
           <Switch>
@@ -83,6 +90,9 @@ export default class Routes extends React.Component {
             <Route path='/AntDemo' children={wrapBySuspen(AntDemo)}></Route>
             <Route path='/AntMotion' children={wrapBySuspen(AntMotion)}></Route>
             <Route path='/Other' children={wrapBySuspen(Other)}></Route>
+            <Route path='/UmiHook' children={wrapBySuspen(UmiHook)}></Route>
+            <Route path='/EmojiDemo' children={wrapBySuspen(EmojiDemo)}></Route>
+            <Route path='/D528' children={wrapBySuspen(D528)}></Route>
             <Route path="*" >
               404
           </Route>
