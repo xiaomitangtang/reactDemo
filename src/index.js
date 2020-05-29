@@ -3,7 +3,10 @@ import ReacDom from 'react-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/index'
 import App from './index.jsx'
-
+import {
+  Provider as KeepProvicer,
+  KeepAlive,
+} from 'react-keep-alive';
 import { AppContext, AppContext2 } from './test/useContext.js'
 import './mock/index'
 import './styles'
@@ -50,9 +53,12 @@ class Wrapper extends React.Component {
         <Provider store={store}>
           <AppContext.Provider value={Context1}>
             <AppContext2.Provider value={Context2}>
-              <StrictMode>
+              {/* <StrictMode> */}
+              <KeepProvicer include={['route']}>
                 <App></App>
-              </StrictMode>
+
+              </KeepProvicer>
+              {/* </StrictMode> */}
             </AppContext2.Provider>
           </AppContext.Provider>
         </Provider>

@@ -1,5 +1,9 @@
 import React, { Fragment, Suspense, lazy } from 'react'
 import { Link, Route, BrowserRouter, HashRouter, Redirect, Switch } from 'react-router-dom'
+import {
+  Provider,
+  KeepAlive,
+} from 'react-keep-alive';
 // import Detail from '../views/detail/index'
 const Detail = lazy(() => import('../views/detail/index'))
 // import List from '../views/list/index'
@@ -23,8 +27,9 @@ const AntDemo = lazy(() => import('./antdTest'))
 const AntMotion = lazy(() => import('./motion'))
 const UmiHook = lazy(() => import('./umihook'))
 const EmojiDemo = lazy(() => import('./emoji'))
-const D528 = lazy(() => import('./test528'))
-
+// const D528 = lazy(() => import('./test528'))
+// const D528 = lazy(() => import('./test528'))
+import D528 from './test528'
 import style from './index.less'
 // link
 //    to  可以是字符串  也可以是对象   pathname search hash state
@@ -92,7 +97,13 @@ export default class Routes extends React.Component {
             <Route path='/Other' children={wrapBySuspen(Other)}></Route>
             <Route path='/UmiHook' children={wrapBySuspen(UmiHook)}></Route>
             <Route path='/EmojiDemo' children={wrapBySuspen(EmojiDemo)}></Route>
-            <Route path='/D528' children={wrapBySuspen(D528)}></Route>
+            {/* <Route path='/D528' children={wrapBySuspen(D528)}></Route> */}
+            <Route path='/D528'>
+              <KeepAlive name='route'>
+                <D528></D528>
+
+              </KeepAlive>
+            </Route>
             <Route path="*" >
               404
           </Route>
@@ -105,7 +116,11 @@ export default class Routes extends React.Component {
   }
 }
 
-const wrapBySuspen = Com => <Suspense fallback={<div>Loading...</div>}>{<Com />}</Suspense>
+const wrapBySuspen = Com => <Suspense fallback={<div>Loading...</div>}>
+  {
+    <Com />
+  }
+</Suspense>
 
 
 // defaultValue 
