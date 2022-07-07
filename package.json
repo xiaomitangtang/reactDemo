@@ -32,7 +32,7 @@
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "mockjs": "^1.1.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "rc-tween-one": "^2.6.8",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
